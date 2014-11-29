@@ -53,3 +53,25 @@ instead of address. E.g.
 
 This instruction tells the assembler to move the value 1 to the *eax* register.
 
+Memory location size directives
+-----
+
+### .byte
+
+Takes up 1 memory storage location(1 byte)
+
+### .int
+
+Takes up 2 memory storage locations(2 bytes)
+
+
+### .long
+
+Takes up 4 memory storage locations(4 bytes)
+
+### .ascii
+
+Takes up 1 memoty storage location(1 byte), but is used for character
+representation(ASCII format).
+
+
