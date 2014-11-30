@@ -52,6 +52,12 @@ power:
   
   movl %ebx, -4(%ebp) # Store current result 
 
+  cmpl $0, %ecx       # Compare the power number to zero 
+  je power_power_zero # Jump
+
+  cmpl $0, %ebx       # Compare the base number to zero
+  je power_base_zero  # Jump
+
 power_loop:
   cmpl $1, %ecx       # Compare the power number to 1
   je  power_cleanup   # Jump to power cleanup
@@ -62,6 +68,14 @@ power_loop:
 
   decl %ecx           # Decrease the power number
   jmp power_loop      # Jump back to the beginning of loop 
+
+power_base_zero: 
+  movl $0, -4(%ebp)   # Store zero as current result
+  jmp power_cleanup
+
+power_power_zero:
+  movl $1, -4(%ebp)   # Store 1 as a current result
+  jmp power_cleanup
 
 power_cleanup:
   movl -4(%ebp), %eax # Move the result to the %eax register
