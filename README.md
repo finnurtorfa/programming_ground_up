@@ -149,3 +149,11 @@ easy steps:
 4.  When done, close the file by using system call number 6. The file descriptor
     is stored in the *ebx* register.
 
+On your Linux system, there are always at least 3 file descriptors open. 
+
+1.  STDIN: Is the first file descriptor. It's a read-only file descriptor that
+    usually represents your keyboard. It always has the file descriptor 0.
+2.  STDOUT: Second file descriptor. A write-only file descriptor that usually
+    represents your screen display. It is always file descriptor 1.
+3.  STDERR: Third file descriptor, which is used for errors. It also represents
+    your screen display. It is file descriptor 2.
