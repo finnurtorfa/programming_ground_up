@@ -7,6 +7,21 @@ assembly language on x86 architecture.
 
 This file also stores some of my notes for easy referrals later on.
 
+Sections
+-----
+
+A program is usually broken up into different sections. A new section is added
+by using the *.section* directive. Below is a listing of some important
+sections: 
+
+*   .data. The data section is used to list any memory storage needed for data.
+    The *data* section takes up space in the final executable and should be used
+    for initialized data.
+*   .bss. It is similar to the *data* section, except it doesn't take up any
+    space inthe executable and is used for uninitialized data like buffers and
+    such.
+*   .text. The text section is where your program instructions live.
+
 Data Accessing Modes 
 -----
 
