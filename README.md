@@ -109,4 +109,28 @@ Takes up 4 memory storage locations(4 bytes)
 Takes up 1 memoty storage location(1 byte), but is used for character
 representation(ASCII format).
 
+File Handling using the UNIX file concept
+-----
+
+To open and read/write/create etc. a file under unix it is necessary to follow 4
+easy steps:
+
+1.  Use the system call number 5, which takes filename, mode and permissions as
+    argument. To do this move the literal 5 to the *eax* register.
+
+    *   Address of the first character of the filename is stored in *ebx*
+        register. 
+    *   The **mode** is stored in the *ecx* register.
+    *   The **permission** is stored in *edx* register. 
+2.  Linux will then return a **file descriptor** which stored in the *eax*
+    register. This is used throughout the program to refer to the file.
+3.  Operate on the file. To read it use system call number 3, and to write use
+    system call number 4. They both take the same arguments.
+
+    *   The file descriptor retrieved earlier is stored in the *ebx* register. 
+    *   An address of a **buffer** for I/O operations is stored in the *ecx*
+        register. 
+    *   The size of the buffer is stored in *edx* register.
+4.  When done, close the file by using system call number 6. The file descriptor
+    is stored in the *ebx* register.
 
